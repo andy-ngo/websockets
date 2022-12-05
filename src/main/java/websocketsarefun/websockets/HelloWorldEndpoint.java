@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-@ServerEndpoint("/hello")
+@ServerEndpoint(value = "/chat")
 public class HelloWorldEndpoint
 {
     private static Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());

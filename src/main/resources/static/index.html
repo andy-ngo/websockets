@@ -1,71 +1,15 @@
-<!--<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Chat</title>
-    <script type="text/javascript" src="/MyHomePage/jquery-2.0.3.min.js"></script>
-</head>
-<body>
-<h2>WebSocket</h2>
-<br>
-<textarea id="message" class="form-control all-input" placeholder="Type your message..."></textarea>
-<br>
-<input type="button" value="Submit" onclick="sendMessage()" />
-<br>
-<input type="button" value="Connect" onclick="connect()" />
-<br>
-<input type="button" value="Disconnect" onclick="disconnect()" />
-<div id="chat"></div>
-<script>
-
-        let StompClient
-        var ws;
-
-        const connect = (event) =>
-        {
-            ws = new WebSocket(
-                    "ws://localhost:8080/MyHomePage/app/topic");
-            const socket = new SockJS('/chat-example')
-            stompClient = Stomp.over(socket)
-            stompClient.connect({},onOpen,onError)
-        }
-
-        const onConnected = () =>
-        {
-            stompClient.subscribe('/topic/public', onMessageReceived)
-        }
-
-        const sendMessage = (event) =>
-        {
-            ws.onMessage = function(evt)
-            {
-
-                alert(evt.msg);
-            };
-        }
-
-        function disconnect()
-        {
-            ws.onClose = function() {
-                alert("Connection is closed...");
-            };
-        }
-
-
-    </script>
-</body>
-</html>-->
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Start Page </title>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Chat Page</h1>
+        <h1>Chat application</h1>
+        <input id="username_input" placeholder="Your username">
         <div id="output"></div>
         <input id="message_input" type="text">
         <button onclick="send()">Send message</button>
-            <script src="js/websocket.js"/>
+            <script src="js/ws.js"></script>
     </body>
 </html>
